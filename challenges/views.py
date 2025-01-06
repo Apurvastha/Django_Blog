@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseNotFound,HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -43,5 +43,5 @@ def monthly_challenge(request, month):
             "month_name": month
         })
     except:
-        return HttpResponseNotFound('This is invalid month!')
+        raise Http404()
     
